@@ -1,284 +1,158 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Image from "next/image";
 
-// Icon components (as in your sample, can be moved to a separate file)
-const MoonIcon = () => (
+// Contact icons
+const EmailIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
   </svg>
 );
-const SunIcon = () => (
+
+const PhoneIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="5"></circle>
-    <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
   </svg>
 );
-// ... (other icons: GithubIcon, LinkedinIcon, MailIcon, ExternalLinkIcon, ChevronDownIcon, CodeIcon, PaletteIcon, ZapIcon)
 
-export default function PortfolioHomepage() {
-  // Theme state
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme");
-      if (saved) return saved === "dark";
-      return window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
-    return true;
-  });
-  const [isVisible, setIsVisible] = useState(false);
+const LinkedInIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+  </svg>
+);
 
-  // Mount animation
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+const GitHubIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+  </svg>
+);
 
-  // Sync theme with localStorage and document
-  useEffect(() => {
-    const theme = isDark ? "dark" : "light";
-    localStorage.setItem("theme", theme);
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
+const LocationIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+    <circle cx="12" cy="10" r="3"></circle>
+  </svg>
+);
 
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
-  // Portfolio content data
-  const skills = [
-    { name: "React/Next.js", level: 95 },
-    { name: "JavaScript/TypeScript", level: 90 },
-    { name: "Node.js", level: 85 },
-    { name: "UI/UX Design", level: 80 },
-    { name: "Python", level: 75 },
-  ];
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack web application with payment integration and admin dashboard",
-      tech: ["Next.js", "Stripe", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-      live: "#",
-      github: "#",
-    },
-    {
-      title: "AI Chat Interface",
-      description: "Modern chat application with real-time messaging and AI integration",
-      tech: ["React", "Socket.io", "OpenAI API"],
-      image: "https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&h=250&fit=crop",
-      live: "#",
-      github: "#",
-    },
-    {
-      title: "Portfolio Dashboard",
-      description: "Analytics dashboard for tracking portfolio performance and metrics",
-      tech: ["Vue.js", "D3.js", "Firebase"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
-      live: "#",
-      github: "#",
-    },
-  ];
-
+export default function HomePage() {
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${isDark ? "dark bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
-      {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 backdrop-blur-md transition-colors duration-300 ${isDark ? "bg-gray-900/80 border-gray-700" : "bg-white/80 border-gray-200"}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Portfolio
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+          {/* Left Column - Introduction */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                Hi, I'm{" "}
+                <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  Bipasha Garg
+                </span>
+              </h1>
+
+              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
+                An Engineer
+              </p>
+
+              <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p>
+                  I'm a passionate developer who loves creating beautiful, functional, and user-centered digital experiences.
+                  With expertise in modern web technologies, I bring ideas to life through clean code and thoughtful design.
+                </p>
+
+                <p>
+                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
+                  or sharing knowledge with the developer community. I believe in the power of technology to solve
+                  real-world problems and make a positive impact.
+                </p>
+
+                <p>
+                  Currently, I'm focused on building scalable web applications using React, Next.js, and modern backend
+                  technologies. I'm always excited to take on new challenges and collaborate on innovative projects.
+                </p>
+              </div>
             </div>
-            <div className="flex items-center space-x-6">
-              <a href="#home" className="hover:text-blue-500 transition-colors">Home</a>
-              <a href="#about" className="hover:text-blue-500 transition-colors">About</a>
-              <a href="#projects" className="hover:text-blue-500 transition-colors">Projects</a>
-              <a href="#contact" className="hover:text-blue-500 transition-colors">Contact</a>
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-full transition-colors duration-300 ${isDark ? "bg-gray-700 hover:bg-gray-600" : "bg-gray-100 hover:bg-gray-200"}`}
-                aria-label="Toggle dark mode"
+
+            {/* Call to Action Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <a href="/projects" className="inline-block">
+                <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  View My Work
+                </button>
+              </a>
+
+              <a
+                href="https://drive.google.com/file/d/YOUR_RESUME_FILE_ID/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 border-2 border-blue-500 text-blue-500 font-semibold rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-105 inline-block text-center"
               >
-                {isDark ? <SunIcon /> : <MoonIcon />}
-              </button>
+                Download Resume
+              </a>
             </div>
           </div>
-        </div>
-      </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20"></div>
-        <div className={`text-center z-10 px-4 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1">
-              <div className={`w-full h-full rounded-full ${isDark ? "bg-gray-900" : "bg-white"} flex items-center justify-center`}>
-                {/* <CodeIcon /> */}
-                <span className="text-5xl">💻</span>
-              </div>
-            </div>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              John Doe
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Full-Stack Developer & UI/UX Designer
-          </p>
-          <p className="text-lg mb-12 text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
-            Crafting digital experiences that combine beautiful design with powerful functionality. Passionate about creating solutions that make a difference.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
-              View My Work
-            </button>
-            <button className={`px-8 py-4 border-2 ${isDark ? "border-gray-600 hover:border-gray-500" : "border-gray-300 hover:border-gray-400"} rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300`}>
-              Download Resume
-            </button>
-          </div>
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="p-3 rounded-full bg-gray-700 hover:bg-gray-600 transition-colors">
-              {/* <GithubIcon /> */} <span>GitHub</span>
-            </a>
-            <a href="#" className="p-3 rounded-full bg-blue-600 hover:bg-blue-500 transition-colors">
-              {/* <LinkedinIcon /> */} <span>LinkedIn</span>
-            </a>
-            <a href="#" className="p-3 rounded-full bg-red-600 hover:bg-red-500 transition-colors">
-              {/* <MailIcon /> */} <span>Email</span>
-            </a>
-          </div>
-        </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          {/* <ChevronDownIcon /> */}
-          <span className="text-3xl">⬇️</span>
-        </div>
-      </section>
+          {/* Right Column - Picture and Contact */}
+          <div className="space-y-8">
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              I'm a passionate developer with over 5 years of experience building modern web applications
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-blue-500 rounded-lg">
-                  {/* <CodeIcon /> */}
-                  <span>💡</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Clean Code</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Writing maintainable, scalable code</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-purple-500 rounded-lg">
-                  {/* <PaletteIcon /> */}
-                  <span>🎨</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Beautiful Design</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Creating stunning user interfaces</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div className="p-3 bg-pink-500 rounded-lg">
-                  {/* <ZapIcon /> */}
-                  <span>⚡</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Performance</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Optimized for speed and efficiency</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              {skills.map((skill) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-sm text-gray-500">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div
-                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Here are some of my recent projects that showcase my skills and passion for development
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className={`${isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"} rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border`}>
-                <div className="relative group">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+            {/* Profile Picture */}
+            <div className="flex justify-center">
+              <div className="relative">
+                <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-500 to-purple-600 shadow-2xl">
+                  <Image
+                    src="/my.jpeg"
+                    alt="Bipasha Garg"
+                    width={320}
+                    height={320}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <a href={project.live} className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors">
-                      {/* <ExternalLinkIcon /> */} <span>🔗</span>
-                    </a>
-                    <a href={project.github} className="p-2 bg-white rounded-full hover:bg-gray-100 transition-colors">
-                      {/* <GithubIcon /> */} <span>🐱</span>
-                    </a>
-                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-3 py-1 bg-blue-500/20 text-blue-500 rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
+
+                {/* Decorative elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500 rounded-full animate-pulse delay-300"></div>
+              </div>
+            </div>
+
+            {/* Contact Information - Centered */}
+            <div className="flex flex-col items-center">
+              <h3 className="text-2xl font-bold mb-6 text-center">Get In Touch</h3>
+
+              <div className="space-y-4 max-w-sm w-full">
+                {/* Email */}
+                <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                    <EmailIcon />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
+                    <a href="mailto:bipasha.garg@research.iiit.ac.in" className="text-lg font-semibold hover:text-blue-500 transition-colors">
+                      bipasha[dot]garg[at]research[dot]iiit[dot]ac[dot]in
+                    </a>
                   </div>
                 </div>
               </div>
-            ))}
+
+              {/* Social Links - Centered */}
+              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 w-full max-w-sm">
+                <p className="text-center text-gray-600 dark:text-gray-400 mb-4">Connect with me</p>
+                <div className="flex justify-center space-x-4">
+                  <a href="https://linkedin.com/in/bipasha-garg" className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+                    <LinkedInIcon />
+                  </a>
+                  <a href="https://github.com/bipasha-garg" className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                    <GitHubIcon />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Let's Work Together</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-            Have a project in mind? I'd love to hear about it. Let's create something amazing together.
-          </p>
-          <button className="px-12 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300">
-            Get In Touch
-          </button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className={`py-8 px-4 border-t ${isDark ? "border-gray-700" : "border-gray-200"}`}>
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-600 dark:text-gray-400">
-            © 2025 John Doe. Built with Next.js and Tailwind CSS.
-          </p>
-        </div>
-      </footer>
+      </div>
     </div>
   );
 }
