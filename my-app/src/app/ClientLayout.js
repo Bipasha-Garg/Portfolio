@@ -80,7 +80,7 @@ export default function ClientLayout({ children }) {
                     <div className="flex justify-between items-center py-4">
                         <Link href="/" className="flex items-center">
                             <img
-                                src="/icon.jpeg"
+                                src="/my.jpeg"
                                 alt="Portfolio"
                                 className="w-8 h-8 rounded-full object-cover"
                             />
