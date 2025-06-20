@@ -63,7 +63,7 @@ export default function ContactPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-4">
+        <div className="py-52 bg-gray-900 text-white flex items-center justify-center px-4">
             <div className="max-w-2xl w-full text-center">
                 <div className={`transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                     <h1 className="text-4xl md:text-6xl font-bold mb-8">Contact me.</h1>
