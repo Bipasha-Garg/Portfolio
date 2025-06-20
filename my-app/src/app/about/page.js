@@ -41,7 +41,7 @@ export default function AboutPage() {
                         </p>
 
                         <p className="text-lg md:text-xl">
-                            Beyond the world of data and code, I'm a curious soul with a love for creativity and exploration. I capture stories through <strong className="text-emerald-600 dark:text-emerald-400">photography</strong> and express ideas through <strong className="text-rose-600 dark:text-rose-400">writing</strong> — not so recently penned an article on mental health, a topic close to my heart.
+                            Beyond the world of data and code, I'm a curious soul with a love for creativity and exploration. I capture stories through <strong className="text-emerald-600 dark:text-emerald-400">photography</strong> and express ideas through <strong className="text-rose-600 dark:text-rose-400"><a href="https://pingiiit.org/2023/07/breaking-the-silence/">writing</a></strong> — not so recently penned an article on mental health, a topic close to my heart.
                         </p>
 
                         <p className="text-lg md:text-xl">
