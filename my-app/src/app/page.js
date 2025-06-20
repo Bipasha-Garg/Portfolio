@@ -47,32 +47,28 @@ export default function HomePage() {
           {/* Left Column - Introduction */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight ">
                 Hi, I'm{" "}
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                   Bipasha Garg
                 </span>
               </h1>
 
-              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl sm:text-2xl text-black dark:text-gray-300">
                 An Engineer
               </p>
 
-              <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-lg text-gray-900 dark:text-gray-300 leading-relaxed">
                 <p>
-                  I'm a passionate developer who loves creating beautiful, functional, and user-centered digital experiences.
-                  With expertise in modern web technologies, I bring ideas to life through clean code and thoughtful design.
+                  Well, I just a girl with dreams and lil amount of curiosity. I like to explore new stuff, new domains, new sports, new music perhaps?
                 </p>
 
                 <p>
-                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
-                  or sharing knowledge with the developer community. I believe in the power of technology to solve
-                  real-world problems and make a positive impact.
+                  Currently, I am a fourth year student at IIIT Hyderabad working as a researcher @Data Science & Analytics Center with Professor Kamal Karlapalem as my Research Advisor in the field of Data Visualization. After exploring so many existing visualizations, I am now on the way to make one of my own. Cool right? Stay tuned!
                 </p>
 
                 <p>
-                  Currently, I'm focused on building scalable web applications using React, Next.js, and modern backend
-                  technologies. I'm always excited to take on new challenges and collaborate on innovative projects.
+                  I have also been exploring a little bit of Quantitative Finance along Data Science and web development. Apart from staring at my screen, you will find me playing a new sport everytime and being good at it (&gt;_&lt;), or lost in the beauty of skies.
                 </p>
               </div>
             </div>
@@ -130,8 +126,8 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
-                    <a href="mailto:bipasha.garg@research.iiit.ac.in" className="text-lg font-semibold hover:text-blue-500 transition-colors">
-                      bipasha[dot]garg[at]research[dot]iiit[dot]ac[dot]in
+                    <a href="mailto:bipasha.garg@research.iiit.ac.in" className="text-sm font-semibold hover:text-blue-500 transition-colors">
+                      bipasha.garg@research.iiit.ac.in
                     </a>
                   </div>
                 </div>

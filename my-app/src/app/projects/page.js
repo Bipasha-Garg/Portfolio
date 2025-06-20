@@ -13,16 +13,17 @@ export default function ProjectsPage() {
     const projects = [
         {
             id: 1,
-            title: "Parking in a Multi-storied Building",
-            description: "Developed a system using IoT technologies to provide drivers with real-time information on available parking spots, optimize parking utilization, and reduce traffic congestion.",
-            longDescription: "An IoT-based parking management system that uses sensors like LDR to detect vehicle positions and developed an algorithm to allocate the nearest parking spot based on congestion levels.",
-            tech: ["IoT", "Sensors", "LDR", "Algorithms"],
-            category: "iot",
-            image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+            title: "Stock Market Data Analysis",
+            description: "This project involves performing exploratory data analysis (EDA) on historical stock market data to understand trends, volatility, and risk metrics. It includes visualizations, return calculations, correlation analysis, and risk assessments such as Sharpe ratio and standard deviation. The goal is to extract meaningful insights for investors or analysts by identifying patterns and evaluating portfolio risk through quantitative techniques.",
+            longDescription: "An exploratory and risk-focused analysis of historical stock market data to uncover trends and insights.",
+            tech: ["Finance", "EDA", "Stock Market", "Risk Analysis"],
+            category: "Quant",
+            image: "./qf.jpeg",
             live: "",
             github: "",
             featured: true
         },
+        
         {
             id: 2,
             title: "Music Site",
@@ -30,7 +31,7 @@ export default function ProjectsPage() {
             longDescription: "A comprehensive music streaming application with extensive features like filtering explicit content and search functionality for discovering artists, songs, and albums.",
             tech: ["HTML", "CSS", "JavaScript", "Flask"],
             category: "frontend",
-            image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop",
+            image: "music.jpg",
             live: "",
             github: "",
             featured: false
@@ -42,7 +43,7 @@ export default function ProjectsPage() {
             longDescription: "A campus-specific food delivery application that enables students to place orders within the IIIT campus, featuring seamless data conversion between strings and JSON format.",
             tech: ["HTML", "CSS", "JavaScript", "Python", "Flask", "JSON"],
             category: "fullstack",
-            image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=600&h=400&fit=crop",
+            image: "fooddelivery.jpg",
             live: "",
             github: "https://github.com/anshium/ISS-Hackathon.git",
             featured: true
@@ -54,7 +55,7 @@ export default function ProjectsPage() {
             longDescription: "A comprehensive database system for Olympic games with features to run queries like edit, delete, search, and add details in the database using proper database design principles.",
             tech: ["Database", "SQL", "MySQL", "ER Model"],
             category: "backend",
-            image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
+            image: "db.jpg",
             live: "",
             github: "",
             featured: false
@@ -66,7 +67,7 @@ export default function ProjectsPage() {
             longDescription: "A comprehensive shell implementation with commonly used commands, featuring pipe-lining, I/O redirection, foreground and background processes for enhanced terminal functionality.",
             tech: ["C", "Linux", "System Programming"],
             category: "backend",
-            image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&h=400&fit=crop",
+            image: "cshell.jpeg",
             live: "",
             github: "",
             featured: false
@@ -78,7 +79,7 @@ export default function ProjectsPage() {
             longDescription: "An interactive NFS system that maintains logs of every activity and handles failures and errors efficiently, providing robust file and directory access across networks.",
             tech: ["C", "Network Programming", "File Systems"],
             category: "backend",
-            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+            image: "nfs.jpg",
             live: "",
             github: "",
             featured: false
@@ -90,7 +91,7 @@ export default function ProjectsPage() {
             longDescription: "A comprehensive research portal featuring different pages to showcase RnD department work, with administrative controls for content management and research information updates.",
             tech: ["React.js", "Next.js", "Node.js", "SQL", "Prisma", "Figma", "Tailwind"],
             category: "fullstack",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+            image: "iiith.jpg",
             live: "",
             github: "",
             featured: true
@@ -102,7 +103,7 @@ export default function ProjectsPage() {
             longDescription: "An interactive chess game visualization that provides detailed analysis of each move, allowing users to understand game progression and strategic decisions throughout the match.",
             tech: ["React.js", "D3", "Tailwind"],
             category: "frontend",
-            image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600&h=400&fit=crop",
+            image: "chess.png",
             live: "",
             github: "https://github.com/Bipasha-Garg/ChessGame.git",
             featured: false
@@ -114,7 +115,7 @@ export default function ProjectsPage() {
             longDescription: "A comprehensive data visualization project featuring country maps, bar charts, line charts and animated bubble charts to analyze and display the economic conditions of asylum countries and migration patterns.",
             tech: ["React.js", "Tailwind", "D3", "Python"],
             category: "frontend",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+            image: "asylum.png",
             live: "",
             github: "https://github.com/bassamadnan/dv-team-project.git",
             featured: false
@@ -126,11 +127,23 @@ export default function ProjectsPage() {
             longDescription: "An intelligent system that applies Big Five Personality Traits model for data exploration and uses machine learning algorithms to generate quantitative personality scores from candidates' online profiles while ensuring privacy compliance.",
             tech: ["Python", "HTML", "CSS", "Flask", "SQL", "Machine Learning"],
             category: "fullstack",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+            image: "big5.jpg",
             live: "",
             github: "https://github.com/TanishG03/Megathon2023.git",
             featured: true
-        }
+        },
+        {
+            id: 11,
+            title: "Parking in a Multi-storied Building",
+            description: "Developed a system using IoT technologies to provide drivers with real-time information on available parking spots, optimize parking utilization, and reduce traffic congestion.",
+            longDescription: "An IoT-based parking management system that uses sensors like LDR to detect vehicle positions and developed an algorithm to allocate the nearest parking spot based on congestion levels.",
+            tech: ["IoT", "Sensors", "LDR", "Algorithms"],
+            category: "iot",
+            image: "./multistorey.jpg",
+            live: "",
+            github: "",
+            featured: true
+        },
     ];
 
     const categories = [
@@ -150,9 +163,9 @@ export default function ProjectsPage() {
             <div className="max-w-7xl mx-auto">
                 <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6">My Projects</h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    {/* <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                         A collection of projects that showcase my skills and passion for development
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* Filter Buttons */}
@@ -239,9 +252,10 @@ export default function ProjectsPage() {
                     <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
                         I'm always excited to work on new projects and bring ideas to life. Let's discuss the next step!
                     </p>
+                    <a href="\contact">
                     <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
-                        Start a Project
-                    </button>
+                        Contact me
+                        </button></a>
                 </div>
             </div>
         </div>

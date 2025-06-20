@@ -68,11 +68,12 @@ export default function ContactPage() {
                 <div className={`transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                     <h1 className="text-4xl md:text-6xl font-bold mb-8">Contact me.</h1>
 
-                    <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed">
-                        Feel free to contact me via LinkedIn, or email (DMs are open). I'll respond within a day.
-                        If you have an interesting project or collaboration opportunity, I'd love to hear from you.
+                    <p className="text-lg md:text-xl text-gray-300  leading-relaxed">
+                        Feel free to contact me via LinkedIn, or email. I'm always happy to connect, chat about opportunities, or just geek out over cool ideas!
                     </p>
+                    <p className="text-lg md:text-xl text-gray-300 mb-12 leading-relaxed">
 
+                    Whether you have a question, an idea, or just want to say hi — don’t hesitate to reach out!                    </p>
                     <div className="flex justify-center space-x-6">
                         {contactLinks.map((link, index) => (
                             <a

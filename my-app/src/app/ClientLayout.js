@@ -32,19 +32,17 @@ const CloseIcon = () => (
 
 export default function ClientLayout({ children }) {
     const pathname = usePathname();
-    const [isDark, setIsDark] = useState(() => {
-        if (typeof window !== "undefined") {
-            try {
-                const saved = localStorage.getItem("theme");
-                if (saved) return saved === "dark";
-                return window.matchMedia("(prefers-color-scheme: dark)").matches;
-            } catch (e) {
-                console.error("Failed to access localStorage:", e);
-                return window.matchMedia("(prefers-color-scheme: dark)").matches;
-            }
-        }
-        return true;
-    });
+    const [isDark, setIsDark] = useState(true); // default false
+
+    useEffect(() => {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const storedTheme = localStorage.getItem("theme");
+        const isDarkMode = storedTheme === "dark" || (!storedTheme && prefersDark);
+
+        setIsDark(isDarkMode);
+        document.documentElement.classList.toggle("dark", isDarkMode);
+    }, []);
+    
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -54,7 +52,10 @@ export default function ClientLayout({ children }) {
         } catch (e) {
             console.error("Failed to set localStorage:", e);
         }
-        document.documentElement.classList.toggle("dark", isDark);
+        document.documentElement.classList.remove("dark");
+        if (isDark) {
+            document.documentElement.classList.add("dark");
+        }
         document.documentElement.style.transition = "all 0.5s ease";
     }, [isDark]);
 
@@ -147,22 +148,9 @@ export default function ClientLayout({ children }) {
                             © 2025 Bipasha Garg. All rights reserved.
                         </p>
                         <div className="flex justify-end space-x-4">
-                            {/* {socialLinks.map((link, index) => (
-                                <a
-                                    key={index}
-                                    href={link.href}
-                                    className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-                                    aria-label={link.name}
-                                >
-                                    <span>{link.icon}</span>
-                                </a>
-                            ))} */}
-
-
                             <p className="text-gray-600 dark:text-gray-400">
-                                Built June 2025
+                                Built in June 2025
                             </p>
-
                         </div>
                     </div>
                 </div>
